@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YDY</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="YDY">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="theme-color" content="#000000">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  html,body{margin:0;height:100%;background:#000;color:#eee;font-family:-apple-system,"Hiragino Sans",sans-serif}
+  main{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:32px 24px;box-sizing:border-box;text-align:center}
+  img{width:140px;height:140px;border-radius:30px}
+  a.btn{display:block;background:#cfa95e;color:#1b170f;font-weight:700;text-decoration:none;padding:15px 36px;border-radius:14px;font-size:17px}
+  p{margin:0;font-size:14px;line-height:1.8;color:#aaa}
+  b{color:#eee}
+</style>
+</head>
+<body>
+<main>
+  <img src="icon-512.png" alt="YDY">
+  <a class="btn" id="open" href="#">YDYアプリを開く</a>
+  <p id="hint">ホーム画面に置くには<br>下の <b>共有ボタン</b> →「<b>ホーム画面に追加</b>」</p>
+</main>
+<script>
+  var APP_URL = "https://script.google.com/macros/s/AKfycbxFNZ8V27ZfPSeNpCzL8--WvDfSQ8jqYpXaMWSdjlus0t_ZlDITMQC1XOFpBkp5DobS/exec";
+  document.getElementById('open').href = APP_URL;
+  var standalone = window.navigator.standalone === true || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  if (standalone) {
+    document.getElementById('hint').textContent = 'アプリを開いています…';
+    location.replace(APP_URL);
+  }
+</script>
+</body>
+</html>
